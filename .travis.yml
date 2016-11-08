@@ -2,22 +2,7 @@
 # This file will be regenerated if you run travis_pypi_setup.py
 
 language: python
-python: 3.5
-
-env:
-  - TOXENV=py35
-  - TOXENV=py34
-  - TOXENV=py33
-  - TOXENV=py27
-  - TOXENV=py26
-  - TOXENV=pypy
-
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox
-
-# command to run tests, e.g. python setup.py test
-script: tox -e ${TOXENV}
-
+python: 2.7
 # After you create the Github repo and add it to Travis, run the
 # travis_pypi_setup.py script to finish PyPI deployment setup
 deploy:
@@ -29,4 +14,17 @@ deploy:
   on:
     tags: true
     repo: dilnoza92/schrodinger
-    condition: $TOXENV == py27
+    #condition: $TOXENV == py27
+
+install: pip install coveralls
+before_install:
+- pip install coverage
+- pip install matplotlib
+
+# command to run tests, e.g. python setup.py test
+script: tox -e ${TOXENV}
+
+script:
+- coverage run --source=schrodinger/schrodinger.py setup.py test
+- coverage report -m 
+after_success: coveralls

@@ -17,7 +17,7 @@ schrodinger
      :target: https://pyup.io/repos/github/dilnoza92/schrodinger/
      :alt: Updates
 
-.. image:: https://coveralls.io/repos/github/dilnoza92/schrodinger/badge.png?branch=master
+.. image:: https://coveralls.io/repos/github/dilnoza92/schrodinger/badge.svg?branch=master
 :target: https://coveralls.io/github/dilnoza92/schrodinger?branch=master
 
 

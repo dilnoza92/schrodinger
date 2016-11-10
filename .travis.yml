@@ -2,7 +2,8 @@
 # This file will be regenerated if you run travis_pypi_setup.py
 
 language: python
-python: 2.7
+python: 
+- "2.7_with_system_site_packages"
 # After you create the Github repo and add it to Travis, run the
 # travis_pypi_setup.py script to finish PyPI deployment setup
 deploy:
@@ -16,14 +17,16 @@ deploy:
     repo: dilnoza92/schrodinger
     #condition: $TOXENV == py27
 
-install: pip install coveralls
+install: 
+- pip install coveralls
+- python setup.py install
 before_install:
 - pip install coverage
 - pip install matplotlib
-- pip install  scipy
-- pip install numpy
+- sudo apt-get install -qq python-numpy python-scipy python-matplotlib
 - pip install matplotlib
 # command to run tests, e.g. python setup.py test
+
 script: tox -e ${TOXENV}
 
 script:

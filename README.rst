@@ -54,7 +54,9 @@ The example uses x1=0.5, size of the basis set is 150
 
 The output will be displayed on the terminal 
  
+The comparison of fourier, legendre and the original wavefunction is given below:
 
+.. image:: https://github.com/dilnoza92/schrodinger/blob/master/schrodinger/fourier1.png   
 
 
 

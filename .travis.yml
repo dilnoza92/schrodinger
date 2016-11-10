@@ -20,7 +20,9 @@ install: pip install coveralls
 before_install:
 - pip install coverage
 - pip install matplotlib
-- pip install  scipy.special
+- pip install  scipy
+- pip install numpy
+- pip install matplotlib
 # command to run tests, e.g. python setup.py test
 script: tox -e ${TOXENV}
 

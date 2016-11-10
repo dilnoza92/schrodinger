@@ -32,11 +32,4 @@ class TestSchrodinger(unittest.TestCase):
 
     def test_answer(self):
         self.assertEqual(schrodinger.answers[1],1)
-    def test_command_line_interface(self):
-        runner = CliRunner()
-        result = runner.invoke(cli.main)
-        assert result.exit_code == 0
-        assert 'schrodinger.cli.main' in result.output
-        help_result = runner.invoke(cli.main, ['--help'])
-        assert help_result.exit_code == 0
-        assert '--help  Show this message and exit.' in help_result.output
+

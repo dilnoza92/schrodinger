@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
-import matplotlib.pyplot as plt
+ # -*- coding: utf-8 -*-
 import numpy as np
 import math
 import matplotlib
+import matplotlib.pyplot as plt
+
 matplotlib.use('Agg')
 from scipy.special import legendre
 #!!!IMPORTANT:!!!

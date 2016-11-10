@@ -30,6 +30,8 @@ class TestSchrodinger(unittest.TestCase):
     def test_000_something(self):
         pass
 
+    def test_answer(self):
+        self.assertEqual(schrodinger.answers[1],1)
     def test_command_line_interface(self):
         runner = CliRunner()
         result = runner.invoke(cli.main)

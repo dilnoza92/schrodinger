@@ -2,9 +2,10 @@
 import numpy as np
 import math
 import matplotlib
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 
-matplotlib.use('Agg')
 from scipy.special import legendre
 #!!!IMPORTANT:!!!
 #both legendre and fourier variables have to have boolians

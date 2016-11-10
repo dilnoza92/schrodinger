@@ -15,7 +15,7 @@ from contextlib import contextmanager
 from click.testing import CliRunner
 
 from schrodinger import schrodinger
-from schrodinger import cli
+#from schrodinger import cli
 
 
 

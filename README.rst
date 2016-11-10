@@ -35,26 +35,26 @@ Features
 
 * TODO
 
-*In order to read the input, Pot_example1.txt file should be in the main directory which will contain the potential energy for different positions. Since we said that the potential energy is constant, I used potential energy equal to 1. The variable that contains tha information is pe
+* In order to read the input, Pot_example1.txt file should be in the main directory which will contain the potential energy for different positions. Since we said that the potential energy is constant, I used potential energy equal to 1. The variable that contains tha information is pe
 
-*If one wants to use legendre basis set he or she should open the schodinger/schrodinger.py file and change the variables fourier_check=False and legendre_check=True
+* If one wants to use legendre basis set he or she should open the schodinger/schrodinger.py file and change the variables fourier_check=False and legendre_check=True
 * The fourier is vice versa
 
-*the constant should be set in 'constant' variable
+* The constant should be set in 'constant' variable
 
-*the wavefunction I chose is (sin(2*pi*t)+t**3)
+* The wavefunction I chose is (sin(2*pi*t)+t**3)
 
-* the domain over which the wavefunction is defined is [-1,1] and the variable is called 'positions'
+* The domain over which the wavefunction is defined is [-1,1] and the variable is called 'positions'
 
-* the size of the basis set is called 'size_basis_set'
+* The size of the basis set is called 'size_basis_set'
  
-* one can change the position value by changing the value of 'x1'
+* One can change the position value by changing the value of 'x1'
 
-The example uses size of the basis set of 150
+* The example uses size of the basis set of 150.
 
-The output will be a vector of coefficient for a partical choice of basis set and will be displayed on the terminal 
+* The output will be a vector of coefficient for a partical choice of basis set and will be displayed on the terminal 
  
-The comparison of fourier, legendre and the original wavefunction is given below:
+* The comparison of fourier, legendre and the original wavefunction is given below:
 
 .. image:: https://github.com/dilnoza92/schrodinger/blob/master/schrodinger/fourier1.png   
 

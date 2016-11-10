@@ -12,7 +12,7 @@ from scipy.special import legendre
 fourier_check=False               #tell to use fourier series for the basis set 
 legendre_check=True             #tells to use legendre polynomials if it is true
 constant=4                    #constant needed for hamiltonian operator
-size_basis_set=5                      #size of the basis set
+size_basis_set=150                      #size of the basis set
 positions=np.arange(-1,1, 0.01)        #domain on which the wave function is defined
 period=np.max(positions)-np.min(positions)                               #period for fourier serier
 y_psi=np.array([(np.sin(2*np.pi*t)+t**3) for t in positions])  #Wave function

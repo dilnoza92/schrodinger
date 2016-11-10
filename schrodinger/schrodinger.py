@@ -2,6 +2,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+import matplotlib
+matplotlib.use('Agg')
 from scipy.special import legendre
 #!!!IMPORTANT:!!!
 #both legendre and fourier variables have to have boolians

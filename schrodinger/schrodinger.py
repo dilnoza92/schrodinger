@@ -12,9 +12,9 @@ from scipy.special import legendre
 #if one wants to use fourier the variables should be:  fourier=True and legendre=False
 #if one wants to use legendre it variables  be:  fourier=False and legendre=True
 
-
-fourier_check=False               #tell to use fourier series for the basis set 
-legendre_check=True             #tells to use legendre polynomials if it is true
+pe=1
+fourier_check=True               #tell to use fourier series for the basis set 
+legendre_check=False             #tells to use legendre polynomials if it is true
 constant=4                    #constant needed for hamiltonian operator
 size_basis_set=150                      #size of the basis set
 positions=np.arange(-1,1, 0.01)        #domain on which the wave function is defined
@@ -80,7 +80,12 @@ def fourier_deriv(x,Nh):
    '''
    f = np.array([2*-1*(2*i*np.pi/period)**2*cn_fourier(i)*np.exp(1j*2*i*np.pi*x/period) for i in np.arange(1,Nh+1)\
 ])
-   return f.sum()
+   sum=f.sum()
+   return sum
+def final_fourier_deriv():
+   y_fourie_dev = np.array([fourier_deriv(x,size_basis_set).real for x in np.arange(0.5,size_basis_set+05)])         #fourier     
+   return y_fourie_dev
+
 def laplacian(array_coef=False):
    a=[]
    if(fourier_check==True and legendre_check==False):
@@ -96,8 +101,6 @@ plt.plot(positions,y_legendre, 'o')   #the legendre approximation in blue dots
 plt.savefig('fourier1.png')           #saves the image that has the wavefunction,fourier approximation and legendre approximation
 
 filename="Pot_Example1.txt"            #the name of the pot energy file
-
-
 
 def potential_force_data(potential_file):
    '''takes a name of the potential energy file and returns an array of potentials energy      data
@@ -127,61 +130,56 @@ def potential_force_data(potential_file):
    return data                           #returns the data array
 
 pe_data=potential_force_data(filename)   #saves the data in the pe_data array
-#print pe_data
-#def wrap(position_1):
+
 def pe_force_reader(position):
     for datum in pe_data:
         if(position<=datum[1]):
             #print datum[3], datum[2]
             return datum[3]#PE_force 
-#print pe_force_reader(0.5)
 
-def hamiltonian_legendre(x, coef):
 
-      hamilton=laplacian(coef)
-      hamilton=np.ndarray.tolist(hamilton)
+def hamiltonian_legendre(coef):
+      hamilton=laplacian(coef)       
+      hamilton=np.ndarray.tolist(hamilton)  
       hamilton.append(0)
       hamilton.append(0)
       hamilton=np.asarray(hamilton)
-      
-#      hamilton[len(hamilton)+1]=0
- #     hamilton[len(hamilton)+1]=0
       hamiltonian=np.zeros((len(hamilton)))
-      print len(coef),len(hamilton)
       for i in np.arange(len(hamilton)):
-         print i
-         hamiltonian[i]=pe_force_reader(x)*coef[i]+hamilton[i]*(-constant)
+         hamiltonian[i]=pe*coef[i]+hamilton[i]*(-constant)
       hamiltonian_last=np.zeros((len(hamilton)))
-      
       for i in np.arange(len(hamiltonian)):
          hamiltonian_last[i]=hamiltonian[i]*coef[i]
       return hamiltonian_last
 
-'''
 
-   basis=np.zeros(((size_basis_set,size_basis_set))))
-   for i in np.arange(size_basis_set):
-      zeros=np.zeros(size_basis_set))
-      zeros[i]=np.polynomila.legendre.Legendre.basis(i)
-      basis[i]=zeros
-   deriv=np.zeros((len(basis_set),len(basis_set)))
+def hamiltonian_fourier( coef):
+      hamilton=final_fourier_deriv()
+      print len(hamilton), len(coef)
+      ##hamilton=np.ndarray.tolist(hamilton)
+      #hamilton.append(0)
+      #hamilton.append(0)
+      #hamilton=np.asarray(hamilton)
       
-   for i in np.arange(len(basis)):
-      deriv[i]=(np.polynomial.legendre.legval(x,laplacian(basis[i])))
-   if (fourier_check==False and legendre_check==True):
-      for i in np.arange(len(basis)):
-         deriv[i]=deriv[i]+np.polynomial.legendre.legval(x,basis[i])*pe_force_reader(x)
-   return deriv
-'''
-def answer(x):
-   if (x<period/2):
-      a=[]
-      if (fourier_check==False):
-         a=hamiltonian_legendre(x,legendre_coeff)
-      else:
-         pass
-      return a,1
-x1=0.5         
-answers=answer(x1)  
-print 'The hamiltonian of {} is shown below:\n {}'.format(x1,answers[0])
+#      hamilton[len(hamilton)+1]=0
+ #     hamilton[len(hamilton)+1]=0
+      hamiltonian=np.zeros((len(hamilton)))
+      #print len(coef),len(hamilton)
+      for i in np.arange(len(hamilton)):
+         hamiltonian[i]=pe*coef[i]+hamilton[i]*(-constant)
+      hamiltonian_last=np.zeros((len(hamilton)))
+      for i in np.arange(len(hamiltonian)):
+         hamiltonian_last[i]=hamiltonian[i]*coef[i]
+      return hamiltonian_last
+print hamiltonian_fourier(fourier_coeff)
+def answer():
+   a=[]
+   if (fourier_check==False):
+      a=hamiltonian_legendre(legendre_coeff)
+   else:
+      a=hamiltonian_fourier(fourier_coeff)
+   return a,1
+answers=answer()  
+print 'The hamiltonian of is shown below for Legendre={} :\n {}'.format(legendre_check,answers[0])
 #plt.show()
+

@@ -56,7 +56,7 @@ How to run the code with inputs given in the terminal
  
 * The comparison of fourier, legendre and the original wavefunction is given below:
 
-.. image:: https://github.com/dilnoza92/schrodinger/blob/master/schrodinger/fourier1.svg   
+.. image:: https://github.com/dilnoza92/schrodinger/blob/master/schrodinger/fourier1.png   
 
 How to run the tests
 -------

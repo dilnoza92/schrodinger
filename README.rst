@@ -17,7 +17,7 @@ schrodinger
      :target: https://pyup.io/repos/github/dilnoza92/schrodinger/
      :alt: Updates
 
-.. image:: https://coveralls.io/repos/github/dilnoza92/schrodinger/badge.png?branch=master
+.. image:: https://coveralls.io/repos/github/dilnoza92/schrodinger/badge.svg?branch=master
 :target: https://coveralls.io/github/dilnoza92/schrodinger?branch=master
 
 
@@ -58,8 +58,14 @@ How to run the code with inputs given in the terminal
 
 .. image:: https://github.com/dilnoza92/schrodinger/blob/master/schrodinger/fourier1.svg   
 
+How to run the tests
+-------
 
+* To run the test type the following:
 
+* coverage run setup.py test
+
+* coverage report -m
 
 Credits
 ---------

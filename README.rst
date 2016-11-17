@@ -30,33 +30,33 @@ solution to the schrodinger's equation
 * Documentation: https://schrodinger.readthedocs.io.
 
 
-Features
+How to run the code with inputs given in the terminal
 --------
 
-* TODO
+* in the terminal type for example the following can be typed:
 
-* In order to read the input, Pot_example1.txt file should be in the main directory which will contain the potential energy for different positions. Since we said that the potential energy is constant, I used potential energy equal to 1. The variable that contains tha information is pe
+* coverage run --source=schrodinger/schrodinger.py  schrodinger/schrodinger.py  --fourier True --legendre False --constant 1 --basis_set_size 20 --potential_energy 1 --input_file Pot_example1.txt
 
-* If one wants to use legendre basis set he or she should open the schodinger/schrodinger.py file and change the variables fourier_check=False and legendre_check=True
-* The fourier is vice versa
 
-* The constant should be set in 'constant' variable
-
-* The wavefunction I chose is (sin(2*pi*t)+t**3)
+* In order to read the input, Pot_example1.txt file should be in the main directory which will contain the potential energy for different positions.
 
 * The domain over which the wavefunction is defined is [-1,1] and the variable is called 'positions'
 
-* The size of the basis set is called 'size_basis_set'
- 
-* One can change the position value by changing the value of 'x1'
+* The basis_set_size is the size of the basis set
 
-* The example uses size of the basis set of 150.
+* The constant is a 'constant' variable
+
+* The wavefunction I chose is (sin(2*pi*t)+t**3)
+
+* legendre is a boolean that is true if legendre polynomials should be used and fourier should be set false
+
+* fourier is a boolean that is true if fourier series should be used and legendre should be set false
 
 * The output will be a vector of coefficient for a partical choice of basis set and will be displayed on the terminal 
  
 * The comparison of fourier, legendre and the original wavefunction is given below:
 
-.. image:: https://github.com/dilnoza92/schrodinger/blob/master/schrodinger/fourier1.png   
+.. image:: https://github.com/dilnoza92/schrodinger/blob/master/schrodinger/fourier1.svg   
 
 
 

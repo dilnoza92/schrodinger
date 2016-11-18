@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
-
+import scipy
 from scipy.special import legendre
 #!!!IMPORTANT:!!!
 #both legendre and fourier variables have to have boolians
@@ -173,10 +173,10 @@ def hamiltonian_legendre(coef):
    hamiltonian=np.zeros((len(hamilton)))    #initializes an array of the size of the basis set to keep the hamiltonian before it is multiplied by the basis set coefficients
    for i in np.arange(len(hamilton)):
       hamiltonian[i]=pe*coef[i]+hamilton[i]*(-constant) #computes the laplacian plus the potential energy term of basis set coefficient
-   hamiltonian_last=np.zeros((len(hamilton)))           #initializes an array to keep the final solution
+   #hamiltonian_last=np.empty([len(hamilton), len(hamilton)])           #initializes an array to keep the final solution
+   hamiltonian_last=np.zeros((len(hamilton)))
    for i in np.arange(len(hamiltonian)):
       hamiltonian_last[i]=hamiltonian[i]*coef[i]        #computes the hamiltonian on the basis set functions
-   print len(hamiltonian_last)
    return hamiltonian_last                              #the final hamiltonian
 
 
@@ -196,7 +196,8 @@ def hamiltonian_fourier( coef):
    hamiltonian=np.zeros((len(hamilton)))   #initiation of an array that will keep the hamiltonians
    for i in np.arange(len(hamilton)):
       hamiltonian[i]=pe*coef[i]+hamilton[i]*(-constant)    #computes the laplacian plus the potential energy term of basis set coefficient
-   hamiltonian_last=np.zeros((len(hamilton)))              #initializes an array to keep the final solution
+   
+   hamiltonian_last=np.zeros((len(hamilton)))
    for i in np.arange(len(hamiltonian)):
       hamiltonian_last[i]=hamiltonian[i]*coef[i]           #computes the hamiltonian on the basis set functions
    return hamiltonian_last
@@ -219,7 +220,12 @@ def answer(check):
       a=hamiltonian_fourier(fourier_coeff)#gets the hamiltonian using fourier transforms
    return a,1
 answers=answer(legendre_check)  #hamiltonian
-print answers[0], len(answers[0])
+#print (answers[0][0],answers[0][1])
+old_array=answers[0]
+c=np.transpose(old_array)
+
+
+#print answers[0], len(answers[0])
 print 'The hamiltonian of is shown below for Legendre={} :\n {}'.format(legendre_check,answers[0])
 
 

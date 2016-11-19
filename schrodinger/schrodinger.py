@@ -252,4 +252,4 @@ for i in np.arange(100):
    energy[i]=energy_calculator(hamiltonian(random1),fourier_coefficient(random1))
 minimum_energy=min(energy)
 index0=energy.min()
-print "The minimum energy is {} and the wave function correspoiding to that wavefunction is {}".format(miminumu_energy,wavefunction(index[index0]))
+print "The minimum energy is {} and the wave function correspoiding to that wavefunction is {}".format(minimum_energy,wavefunction(index[index0]))

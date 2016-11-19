@@ -31,7 +31,7 @@ script: tox -e ${TOXENV}
 
 script:
 
-- coverage run --source=schrodinger/schrodinger.py schrodinger/schrodinger.py --fourier True --legendre False --constant 1 --basis_set_size 20 --potential_energy 1 --input_file Pot_example1.txt
+- coverage run --source=schrodinger/schrodinger.py schrodinger/schrodinger.py --fourier True --legendre False --constant 1 --basis_set_size 20 --potential_energy 1 
 - coverage run --source=schrodinger/schrodinger.py setup.py test
 - coverage report -m 
 after_success: coveralls

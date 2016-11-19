@@ -54,20 +54,21 @@ class TestSchrodinger(unittest.TestCase):
         #self.assertEqual(len(schrodinger.hamiltonian_fourier(schrodinger.legendre_coeff)),len(answers))
         schrodinger.legendre_check==True
         schrodinger.fourier_check=False
-        print schrodinger.legendre_coeff
+        #print schrodinger.legendre_coeff
         answers1=[]
-        answers1=np.polynomial.legendre.legder(schrodinger.legendre_coeff,2)
+        answers1=np.polynomial.legendre.legder(schrodinger.legendre_coeff(1),2)
         #print schrodinger.laplacian(True,schrodinger.legendre_coeff)
         
-        self.assertEqual(len(schrodinger.laplacian(True, schrodinger.legendre_coeff)),len(answers1))
+        self.assertEqual(len(schrodinger.laplacian(True, schrodinger.legendre_coeff(1))),len(answers1))
         pass
 
 
 
 
     def test_answer(self):
-        self.assertEqual(schrodinger.answers[1],1)
-        results=schrodinger.answer(True)
+        result=schrodinger.answer(True,1)
+        self.assertEqual(result[1],1)
+        results=schrodinger.answer(False,1)
         self.assertEqual(results[1],1)
         pass
 

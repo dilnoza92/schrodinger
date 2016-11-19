@@ -46,7 +46,7 @@ How to run the code with inputs given in the terminal
 
 * The constant is a 'constant' variable
 
-* The wavefunction I chose is (sin(2*pi*t)+t**3)
+* The wavefunction I chose is a gaussian
 
 * legendre is a boolean that is true if legendre polynomials should be used and fourier should be set false
 

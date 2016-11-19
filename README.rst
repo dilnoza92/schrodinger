@@ -52,7 +52,7 @@ How to run the code with inputs given in the terminal
 
 * fourier is a boolean that is true if fourier series should be used and legendre should be set false
 
-* The output will be a vector of coefficient for a partical choice of basis set and will be displayed on the terminal 
+* The output will be a wavefunction that has the minimum energy
  
 * The comparison of fourier, legendre and the original wavefunction is given below:
 
